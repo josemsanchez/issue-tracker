@@ -12,6 +12,21 @@ const CONNECTION_STRING = process.env.DB;
 module.exports = function (app) {
 
   mongoose.connect(CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
+
+  //Creating the Issue Model
+  let issueSchema = new mongoose.Schema({
+    issue_title: {type: String, required: true},
+    issue_text: {type: String, required: true},
+    created_by : {type: String, required: true},
+    assigned_to : String,
+    status_text : String,
+    open: {type: Boolean, required: true},
+    created_on: {type: Date, required: true},
+    updated_on: {type: Date, required: true},
+    project: String
+  })
+
+  let Issue = mongoose.model('Issue', issueSchema)
   
   app.route('/api/issues/:project')
   
