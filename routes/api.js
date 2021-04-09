@@ -51,8 +51,8 @@ module.exports = function (app) {
       
       newIssue.save((error, savedIssue) => {
         if(!error && savedIssue){
-          //console.log('Saved Issue is')
-          //console.log(savedIssue)
+          console.log('Saved Issue is')
+          console.log(savedIssue)
         }
       })
     })
